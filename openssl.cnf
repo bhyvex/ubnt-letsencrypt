@@ -21,4 +21,4 @@ organizationalUnitName = "IT Department"          # OU=
 commonName             = "wasenweg.de"            # CN=
 
 [ v3_req ]
-subjectAltName  = DNS:www.wasenweg.de,DNS:plex.wasenweg.de,DNS:alpha.wasenweg.de,DNS:downloads.wasenweg.de,DNS:beta.wasenweg.de,DNS:surveillance.wasenweg.de
+subjectAltName  = DNS:www.wasenweg.de,DNS:plex.wasenweg.de,DNS:alpha.wasenweg.de,DNS:downloads.wasenweg.de,DNS:beta.wasenweg.de,DNS:unify.wasenweg.de
