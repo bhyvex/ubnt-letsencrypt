@@ -23,7 +23,7 @@ chmod 755 /config/scripts/post-config.d/install_letsencrypt.sh
 echo "Generate keys to be used in our signed certificate"
 [ -f /config/letsencrypt/account.key ] || openssl genrsa 4096 | tee /config/letsencrypt/account.key
 [ -f /config/letsencrypt/domain.key ]  || openssl genrsa 4096 | tee /config/letsencrypt/domain.key
-[ -f /config/letsencrypt/domain.csr ]  || openssl req -new -sha256 -key /config/letsencrypt/domain.key -subj "/CN=$fqdn" | tee /config/letsencrypt/domain.csr
+[ -f /config/letsencrypt/domain.csr ]  || openssl req -config /config/letsencrypt/openssl.cnf -new -sha256 -key /config/letsencrypt/domain.key -subj "/CN=$fqdn" | tee /config/letsencrypt/domain.csr
 
 echo "Making lighttpd configurations and restarting daemon so letsencypt and verify we own this domain via .well-known/acme-challenge/"
 [ -d /config/lighttpd ] ||  mkdir /config/lighttpd/
@@ -37,8 +37,3 @@ cat /var/run/lighttpd.pid | xargs kill
 
 echo "Run letsrenew.sh file to actually sign the certificate and generate new /etc/lighttpd/server.pem"
 bash /config/letsencrypt/letsrenew.sh
-
-
-
-
-

@@ -1,0 +1,24 @@
+[ req ]
+default_bits       = 4096
+default_md         = sha512
+default_keyfile    = key.pem
+prompt             = no
+encrypt_key        = no
+
+distinguished_name = req_distinguished_name
+
+req_extensions     = v3_req
+
+# distinguished_name
+[ req_distinguished_name ]
+countryName            = "DE"                     # C=
+stateOrProvinceName    = "Baden"                  # ST=
+localityName           = "Keller"                 # L=
+postalCode             = "79790"                  # L/postalcode=
+streetAddress          = "Wasenweg 12"            # L/street=
+organizationName       = "Schmidt & Co."          # O=
+organizationalUnitName = "IT Department"          # OU=
+commonName             = "wasenweg.de"            # CN=
+
+[ v3_req ]
+subjectAltName  = DNS:www.wasenweg.de,DNS:plex.wasenweg.de,DNS:alpha.wasenweg.de,DNS:downloads.wasenweg.de,DNS:beta.wasenweg.de,DNS:surveillance.wasenweg.de
