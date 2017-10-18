@@ -19,6 +19,7 @@ chmod 755 /config/letsencrypt/letsrenew.sh
 ln -sf /config/letsencrypt/letsrenew.sh /etc/cron.monthly/letsrenew.sh
 curl -o /config/scripts/post-config.d/install_letsencrypt.sh https://raw.githubusercontent.com/kaethorn/ubnt-letsencrypt/master/install_letsencrypt.sh
 chmod 755 /config/scripts/post-config.d/install_letsencrypt.sh
+curl -o /config/letsencrypt/openssl.cnf https://raw.githubusercontent.com/kaethorn/ubnt-letsencrypt/master/openssl.cnf
 
 echo "Generate keys to be used in our signed certificate"
 [ -f /config/letsencrypt/account.key ] || openssl genrsa 4096 | tee /config/letsencrypt/account.key
